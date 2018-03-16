@@ -4,8 +4,7 @@
 
 “异步操作，就相当于我们找其他人去处理事情吗，假如我们说 现在让小王去处理事情，假如它，假如他做成了 我们就采取A 方案， 假如他做失败了 我们就采取B方案” -- ‘我门就采取就是一种承诺’ 是对  the eventual completion or failure of an aschronous operation.的承诺；
 
-
-Promise对象有以下两个特点。
+### Promise对象有以下两个特点。
 
 （1）对象的状态不受外界影响。Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。
 
@@ -40,11 +39,13 @@ let a = timeout(100);
 //     [[PromiseStatus]]:"resolved"
 //     [[PromiseValue]]:"done"
 
+//The __proto__ property of Object.prototype is an accessor property (a getter function and a setter function) that exposes the internal [[Prototype]] (either an object or null) of the object through which it is accessed. 即通过_proto_可以获取到对象的原型；
 
 // 通过在构造函数Promise的参数函数中手动调用resolve与reject来改变Promise实例的状态,即改变promise的属性值[[PromiseStatus]]
 // 调用resolve与reject函数时，通过向其传递参数来改变[[PromiseValue]]的值
 
 
+// then方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为resolved时调用，第二个回调函数是Promise对象的状态变为rejected时调用。其中，第二个函数是可选的，不一定要提供。这两个函数都接受Promise对象传出的值作为参数。
 a.then(
     (value) => {
         console.log(a);
@@ -52,5 +53,68 @@ a.then(
     }
 );
 
+
+```
+
+## Promise 新建后就会立即执行，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行
+
+```js
+let promise = new Promise(function(resolve, reject) {
+  console.log('Promise');
+  resolve();
+});
+
+let promise2 = new Promise(function(resolve, reject) {
+  resolve(promise);
+  console.log('Promise2');
+});
+
+promise.then(function() {
+  console.log('resolved.');
+});
+
+console.log('Hi!')
+;
+// Promise 新建后立即执行
+// Promise
+
+// then 方法指定的回掉函数，将在当前脚本所有同步操作执行完毕后执行；
+// Hi!
+// resolved
+
+```
+
+### Promise实现ajax操作
+
+```js
+const getJSON =  function(url) {
+    const promise = new Promise(
+        (resolve,reject) => {
+            const handler = () => {
+                if (this.readyState != 4){
+                    return;
+                }
+                if (this.atatus === 200){
+                    resolve(this.response);
+                }else{
+                    reject(new Error(this.statusText));
+                }
+            };
+            const client = 
+        }
+    );
+}
+
+```
+
+### Promise异步嵌套
+
+```js
+const p1 = new Promise(function(resolve,reject){
+    // ....
+});
+const p2 = new Promise(function(resolve,reject){
+    resolve(p1);
+})
 
 ```
