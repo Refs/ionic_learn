@@ -50,3 +50,5 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 }
+
+// at a basic level, a navigation controller is  an array of pages representing a paritcular history
