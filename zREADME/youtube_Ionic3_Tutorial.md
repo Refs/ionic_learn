@@ -37,3 +37,33 @@
 })
 
 ```
+
+```html
+<!-- app.html中 -->
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Pages</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- this is navigation controller for ionic . ionic does not make use of angular's navigation controller instead it introduces its own navigation controller to add some fancy effects while you're popping pages or  pushing pages  on the controller itself  -->
+<!-- so with this ionic controller what we have is something known as pages page.  in ionic pages are pretty much components onlyyou can push on the top of the navigation controller. -->
+<!-- ion-nav 就是 navigation controller , 我们可以将pages push or pop from it  -->
+
+<!-- pages are more like components only it is just ionic convention call the pages  -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+
+```
