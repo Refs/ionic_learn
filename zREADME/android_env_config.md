@@ -8,6 +8,8 @@
 
 ## java evironment 
 
+> new cordova need jdk 1.8 or above
+
 * download jdk1.7 and jre7 from baidu disk
 
 * config global environment
@@ -50,11 +52,15 @@
 
 > https://pointdeveloper.com/build-ionic-2-cordova-apps-specific-platform-version/
 
+> API 15
+
 * config global environment
 
     + variable： ANDROID_HOME
     + path: %ANDROID_HOME%\platform-tools
     + path: %ANDROID_HOME%\tools
+
+## android gradle
 
 
 ## android studio
@@ -132,3 +138,24 @@
 </widget>
 
 ```
+
+## spec target cordova platform version
+
+You should be able to see all the versions of platforms installed in your project with:
+
+```bash
+cordova platform list
+```
+Then you can remove the current version with:
+
+```bash
+cordova platform remove android
+```
+
+And install the version you want/need with: (in my case 6.1.1)
+
+```bash
+cordova platform add android@6.1.1
+```
+
+Source: cordova.apache.org documentation
