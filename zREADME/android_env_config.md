@@ -25,6 +25,14 @@
 
 > https://dl.google.com/android/android-sdk_r24.4.1-windows.zip?utm_source=androiddevtools&utm_medium=website
 
+* install sdk manager 
+
+> UnZip the file in any folder, 但要特别的注意解压的文件夹，的路径中，不能包含有空格（如 ： C:\Program Files\ 路径中就包含有一个空格路径，直接导致，后面的安装 功亏一篑）
+
+> Error: Your project location contains whitespace. This can cause problem on some plateform and is not recommended
+
+
+
 
 * config sdk manager
 
@@ -65,6 +73,33 @@
 
 ## android studio
 
+### config the android sdk manually
+
+* skip the SDK components setup panel
+
+![](./images/skip_components_setup_panel.png)
+
+* config the SDK path 
+    + File -- other settings - default project structure  打开 config panel
+    + 在 Android SDK location 中 打开资源管理器  选择 sdk 目录
+    + 目标目录是 (SDK Manager.exe 执行文件所在的路径)
+
+* sdk的路径设置完成之后，可以直接进入到了setting的设置界面中，然后在进行选中Android sdk的，查看sdk的路径是否正确。
+
+![](./images/sdk_path_confirm.png)
+
+
+* android studio default path
+
+```bash
+SDK路径              C:\Users\Administrator\AppData\Local\Android\sdk
+
+软件安装路径       C:\Program Files\Android\Android Studio
+
+默认工程目录       C:\Users\Administrator\AndroidstudioProjects
+
+Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-all\3jdgemv0iv8uqohg3kcp2o88r1 目录下
+```
 
 
 ## select appropriate ionic android version
