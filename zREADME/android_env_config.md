@@ -111,6 +111,14 @@ Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-a
 
 ## select appropriate ionic android version
 
+### ionic 对 android 的版本支持情况
+
+> https://forum.ionicframework.com/t/minimum-android-version-supported-by-ionicv2/54164/5
+
+Ionic 2 supports Android 4.4 (API 19) and up, if you need to support older versions you could use Crosswalk
+
+> Crosswalk : https://crosswalk-project.org/
+
 ### for  android 
 
 > 文档解释 ： https://developer.android.com/guide/topics/manifest/uses-sdk-element.html
