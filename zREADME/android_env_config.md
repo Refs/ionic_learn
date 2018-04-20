@@ -244,17 +244,6 @@ dNdk=true"
 
 ### 手动设置 ionic 的 gradle 路径
 
-<<<<<<< HEAD
-https://blog.csdn.net/yanzisu_congcong/article/details/78020056
-
-
-### 应同时去修改 AndroidManifest.xml 的配置文件对应的版本
-
-uses-sdk:minSdkVersion 14 cannot be smaller than version 16 declared in library [:CordovaLib] C:\Users\lhx10\Desktop\ionic-project\oppo\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml as the library might be using APIs not available in 14
-
-### 插件的版本 也会对SDK 的版本支持情况 造成影响，需要查看一下相关的 release
-
-=======
 > 以下操作，应在 `ionic platform add android` 之后，在 `ionic build android` 之前
 
 https://blog.csdn.net/yanzisu_congcong/article/details/78020056
@@ -321,4 +310,3 @@ cordova platform add android@6.4.0
 <preference name="android-minSdkVersion" value="14" />
 
 ```
->>>>>>> d511efae9494fdaeb9396fa32d6350cb8ee304d6
