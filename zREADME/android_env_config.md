@@ -100,7 +100,6 @@ SDK路径              C:\Users\Administrator\AppData\Local\Android\sdk
 
 Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-all\3jdgemv0iv8uqohg3kcp2o88r1 目录下
 ```
-<<<<<<< HEAD
 
 ### android studio ERROR
 
@@ -108,8 +107,6 @@ Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-a
     + https://stackoverflow.com/questions/34353220/android-studio-please-select-android-sdk
     + solution is run 'Sync Project with Gradle Files'  Tools -> Android -> Sync Project with Gradle Files 
 
-=======
->>>>>>> d511efae9494fdaeb9396fa32d6350cb8ee304d6
 
 
 ## select appropriate ionic android version
