@@ -100,6 +100,7 @@ SDK路径              C:\Users\Administrator\AppData\Local\Android\sdk
 
 Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-all\3jdgemv0iv8uqohg3kcp2o88r1 目录下
 ```
+<<<<<<< HEAD
 
 ### android studio ERROR
 
@@ -107,6 +108,8 @@ Gradle插件目录     C:\Users\Administrator\.gradle\wrapper\dists\gradle-1.9-a
     + https://stackoverflow.com/questions/34353220/android-studio-please-select-android-sdk
     + solution is run 'Sync Project with Gradle Files'  Tools -> Android -> Sync Project with Gradle Files 
 
+=======
+>>>>>>> d511efae9494fdaeb9396fa32d6350cb8ee304d6
 
 
 ## select appropriate ionic android version
@@ -241,6 +244,7 @@ dNdk=true"
 
 ### 手动设置 ionic 的 gradle 路径
 
+<<<<<<< HEAD
 https://blog.csdn.net/yanzisu_congcong/article/details/78020056
 
 
@@ -250,3 +254,71 @@ uses-sdk:minSdkVersion 14 cannot be smaller than version 16 declared in library 
 
 ### 插件的版本 也会对SDK 的版本支持情况 造成影响，需要查看一下相关的 release
 
+=======
+> 以下操作，应在 `ionic platform add android` 之后，在 `ionic build android` 之前
+
+https://blog.csdn.net/yanzisu_congcong/article/details/78020056
+
+* 先去下载一个gradle的包，放在项目的/platforms/android/gradle/ (新建)的下面。然后在项目中找到GradleBuilder.js文件（文件目录：/platforms/android/cordova/lib/builders/GradleBuilder.js) 
+找到下面这段代码：
+
+```js
+var distributionUrl = process.env['CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL'] || 'http\\://services.gradle.org/distributions/gradle-2.2.1-all.zip';
+```
+
+* 改为：
+
+```js
+var distributionUrl = process.env['CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL'] || 'http\\://services.gradle.org/distributions/gradle-2.2.1-all.zip' || '../gradle-4.1-all.zip';
+
+```
+
+
+### Android各版本代号、版本号、API/NDK级别、发布时间及市场份额
+
+> https://www.cnblogs.com/kangjianwei101/p/5220035.html
+
+### cordova android 7.0 对 android sdk的支持情况(android 7.0 默认支持 API 19(4.4) 以上 ) 即使查看 官方blog 上面有详细的版本说明
+
+> https://cordova.apache.org/announcements/2017/12/04/cordova-android-7.0.0.html
+
+> cordova platform add android@7.0.0
+
+* Support for Java 1.8 language features in Cordova Plugins
+* CordovaInterface now has a Context getter so that contexts can be retrieved without an Activity
+* Cordova can now build for x86_64, arm64 and armeabi architecture when building plugins that use the NDK
+* The minimum Android API version supported is now `API Level 19`
+* Due to the directory structure change, we no longer support in-line upgrading, bringing us in line with iOS
+* ANT builds are no longer supported and the functionality has been removed.
+
+> the solution is degrade cordova android version to use v6.4.0
+
+```bash
+
+cordova platform remove android
+
+cordova platform add android@6.4.0
+
+```
+
+>  cordova android 6.4.0 minSDKVersion is 14. 
+
+```xml
+<!-- platforms/android/CordovaLib/AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="org.apache.cordova" android:versionName="1.0" android:versionCode="1">
+    <uses-sdk android:minSdkVersion="14" />
+</manifest>
+
+```
+
+>  config cordova config.xml
+
+```xml
+<!-- config.xml -->
+
+<preference name="android-minSdkVersion" value="14" />
+
+```
+>>>>>>> d511efae9494fdaeb9396fa32d6350cb8ee304d6
