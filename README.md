@@ -31,6 +31,9 @@ ionic start splash sidemenu
 <!-- we want to close that static graphic as soon as possible  -->
 <preference name="ShowSplashScreen" value="true" />
 
+<!-- Remove Disable spinner on splash screen -->
+ <preference name="ShowSplashScreenSpinner" value="false" />
+
 ```
 
 *  策略总结
